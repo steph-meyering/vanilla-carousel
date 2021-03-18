@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./dist/stylesheets/reset.css">
+    <link rel="stylesheet" href="./dist/stylesheets/index.css">
+    <link rel="icon" type="image/png" href="./dist/fractals-favicon.png">
+
+    <!-- LinkedIn Open Graph data -->
+    <meta property="og:title" content="Fractals">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="A vanilla JavaScript Carousel">
+    <!-- LinkedIn Open Graph data end -->
+
+    <meta name="author" content="Stephane Meyering" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./dist/main.js"></script>
+    <title>Fractals</title>
+</head>
+<body>
+    <header>
+        Header
+    </header>
+    <div class="carousel-container">
+        <div class="carousel-root">
+            <div class="arrow-container">
+                <div id="prev" class="arrow arrow--prev"><--</div>
+                <div id="next" class="arrow arrow--next">--></div>
+            </div>
+            <div class="image-container">
+                <img src="images/1.jpg" class="photo active" alt="peluche">
+                <img src="images/2.jpg" class="photo" alt="unsplash">
+            </div>
+        </div>
+        <div class="stepper-container">
+            <div class="stepper-root">
+                <div id="1" class="stepper-button">1</div>
+                <div id="2" class="stepper-button">2</div>
+                <div id="3" class="stepper-button">3</div>
+                <div id="4" class="stepper-button">4</div>
+                <div id="5" class="stepper-button">5</div>
+            </div>  
+        </div>
+    </div>
+    <footer>
+        Footer
+    </footer>
+</body>
+</html>
