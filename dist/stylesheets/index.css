@@ -39,13 +39,19 @@ header, footer {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  /* transform-style: preserve-3d; */
 }
 
 img {
   width: 100%;
   object-fit: contain;
-  height: 90vh;
-  display: none;
+  height: 0px;
+  /* display: none; */
+  /* visibility: hidden; */
+  z-index: 1;
+  opacity: 0;
+  position: absolute;
+  transition: transform .5s, opacity .5s, z-index .5s;
 }
 
 .arrow-container{
@@ -60,6 +66,7 @@ img {
 .arrow {
   border: 1px solid red;
   position: absolute;
+  z-index: 1000;
 }
 .arrow--prev {
   left: 0px;
@@ -69,16 +76,20 @@ img {
   right: 0px
 }
 
-.active {
-  z-index: 100;
-  display: inherit;
+.photo--active {
+  z-index: 10;
+  /* display: inherit; */
+  opacity: 1;
+  position: relative;
+  height: 90vh;
+  visibility: visible;
 }
 .stepper-container {
   position: absolute;
   width: 100%;
   bottom: 0;
 }
-.stepper-root {
+#stepper-root {
   justify-content: center;
   display: flex;
   border: 1px solid green;
@@ -94,7 +105,11 @@ img {
   transition: opacity .25s ease-in;
   opacity: .3;
 }
+.stepper-button--active {
+  opacity: 1;
+}
 
 .button {
   cursor: pointer;
+  z-index: 1000;
 }
