@@ -13,26 +13,26 @@ class CarouselControls {
     this.initStepper();
     this.mouseOver = false;
     this.interval = 3500;
-    this.timers = new Set()
+    this.timers = new Set();
     this.startAutoPlay();
-    document.addEventListener('keydown', (e) => this.handleKeyPress(e));
+    document.addEventListener("keydown", (e) => this.handleKeyPress(e));
   }
 
   startAutoPlay() {
     this.timers.add(setInterval(() => this.toggleNext(), this.interval));
   }
 
-  stopAutoPlay(){
+  stopAutoPlay() {
     this.timers.forEach((timer) => clearInterval(timer));
     this.timers = new Set();
   }
-  
-  resetInterval(){
+
+  resetInterval() {
     this.stopAutoPlay();
     this.startAutoPlay();
   }
-  
-  handleMouseOut(){
+
+  handleMouseOut() {
     this.mouseOver = false;
     this.startAutoPlay();
   }
@@ -42,21 +42,15 @@ class CarouselControls {
     this.stopAutoPlay();
   }
 
-  handleKeyPress(event){
+  handleKeyPress(event) {
     switch (event.key) {
       case "ArrowLeft":
-        if (!this.mouseOver) {
-          this.resetInterval()
-        }
-        return this.togglePrev()
+        return this.togglePrev();
       case "ArrowRight":
-        if (!this.mouseOver) {
-          this.resetInterval();
-        }
-        return this.toggleNext()
+        return this.toggleNext();
       default:
         break;
-    }    
+    }
   }
 
   displayPhoto(nextID) {
@@ -66,6 +60,7 @@ class CarouselControls {
     );
     this.active = nextID;
     this.updateStepper(prevID, nextID);
+    this.resetInterval();
   }
 
   toggleNext() {

@@ -1,46 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./dist/stylesheets/reset.css">
-    <link rel="stylesheet" href="./dist/stylesheets/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./dist/stylesheets/reset.css" />
+    <link rel="stylesheet" href="./dist/stylesheets/index.css" />
 
     <!-- LinkedIn Open Graph data -->
-    <meta property="og:title" content="Carousel">
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="A vanilla JavaScript Carousel">
+    <meta property="og:title" content="Carousel" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="A vanilla JavaScript Carousel" />
     <!-- LinkedIn Open Graph data end -->
 
     <meta name="author" content="Stephane Meyering" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./dist/main.js"></script>
     <title>Carousel Part 2</title>
-</head>
-<body>
-    <header>
-        Vanilla JS Carousel 
-    </header>
+  </head>
+  <body>
+    <header>Vanilla JS Carousel</header>
     <div class="carousel-container">
-        <div class="carousel-root">
-            <div class="arrow-container">
-                <div id="prev" class="arrow arrow--prev button"></div>
-                <div id="next" class="arrow arrow--next button"></div>
-            </div>
-            <div id="image-container">
-                <img src="images/2.jpg" class="photo photo--active" alt="drone pic of the Dolomites">
-                <img src="images/1.jpg" class="photo" alt="drone pic of the Dolomites">
-                <img src="images/3.jpg" class="photo" alt="drone pic of the Dolomites">
-                <img src="images/4.jpg" class="photo" alt="drone pic of Stern Grove in SF">
-                <img src="images/5.jpg" class="photo" alt="drone pic of Croatia">
-            </div>
-            <div class="stepper-container">
-                <div id="stepper-root"></div>  
-            </div>
+      <div class="carousel-root">
+        <div class="arrow-container">
+          <div id="prev" class="arrow arrow--prev button"></div>
+          <div id="next" class="arrow arrow--next button"></div>
         </div>
+        <div id="image-container">
+          <img
+            src="images/2.jpg"
+            class="photo photo--active"
+            alt="drone pic of the Dolomites"
+          />
+          <img
+            src="images/1.jpg"
+            class="photo"
+            alt="drone pic of the Dolomites"
+          />
+          <img
+            src="images/3.jpg"
+            class="photo"
+            alt="drone pic of the Dolomites"
+          />
+          <img
+            src="images/4.jpg"
+            class="photo"
+            alt="drone pic of Stern Grove in SF"
+          />
+          <img src="images/5.jpg" class="photo" alt="drone pic of Croatia" />
+        </div>
+        <div class="stepper-container">
+          <div id="stepper-root"></div>
+        </div>
+      </div>
     </div>
     <footer>
-        Prepared for Avochato by Stephane Meyering 
-        <a id="footer-link" href="https://steph-meyering.github.io/carousel/">Link to part 1</a>
+      Prepared for Avochato by Stephane Meyering
+      <a id="footer-link" href="https://steph-meyering.github.io/carousel/"
+        >Link to part 1</a
+      >
     </footer>
-</body>
+  </body>
 </html>
