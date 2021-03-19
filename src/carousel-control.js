@@ -2,24 +2,61 @@ class CarouselControls {
   constructor() {
     this.photos = document.querySelectorAll(".photo");
     this.stepperButtons = [];
+    this.active = 0;
     const nextButton = document.getElementById("next");
     const prevButton = document.getElementById("prev");
     const imageContainer = document.getElementById("image-container");
     nextButton.addEventListener("click", () => this.toggleNext());
     prevButton.addEventListener("click", () => this.togglePrev());
-    imageContainer.addEventListener("mouseover", () => this.pauseAutoPlay());
-    imageContainer.addEventListener("mouseout", () => this.autoPlay());
-    this.active = 0;
+    imageContainer.addEventListener("mouseover", () => this.handleMouseOver());
+    imageContainer.addEventListener("mouseout", () => this.handleMouseOut());
     this.initStepper();
-    this.autoPlay();
+    this.mouseOver = false;
+    this.interval = 3500;
+    this.timers = new Set()
+    this.startAutoPlay();
+    document.addEventListener('keydown', (e) => this.handleKeyPress(e));
   }
 
-  autoPlay(){
-    this.auto = setInterval(() => this.toggleNext(), 3000)
+  startAutoPlay() {
+    this.timers.add(setInterval(() => this.toggleNext(), this.interval));
   }
 
-  pauseAutoPlay(){
-    clearInterval(this.auto)
+  stopAutoPlay(){
+    this.timers.forEach((timer) => clearInterval(timer));
+    this.timers = new Set();
+  }
+  
+  resetInterval(){
+    this.stopAutoPlay();
+    this.startAutoPlay();
+  }
+  
+  handleMouseOut(){
+    this.mouseOver = false;
+    this.startAutoPlay();
+  }
+
+  handleMouseOver() {
+    this.mouseOver = true;
+    this.stopAutoPlay();
+  }
+
+  handleKeyPress(event){
+    switch (event.key) {
+      case "ArrowLeft":
+        if (!this.mouseOver) {
+          this.resetInterval()
+        }
+        return this.togglePrev()
+      case "ArrowRight":
+        if (!this.mouseOver) {
+          this.resetInterval();
+        }
+        return this.toggleNext()
+      default:
+        break;
+    }    
   }
 
   displayPhoto(nextID) {
@@ -27,7 +64,7 @@ class CarouselControls {
     [this.photos[prevID], this.photos[nextID]].forEach((el) =>
       el.classList.toggle("photo--active")
     );
-    this.active = nextID
+    this.active = nextID;
     this.updateStepper(prevID, nextID);
   }
 
