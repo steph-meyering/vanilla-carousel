@@ -4,11 +4,22 @@ class CarouselControls {
     this.stepperButtons = [];
     const nextButton = document.getElementById("next");
     const prevButton = document.getElementById("prev");
+    const imageContainer = document.getElementById("image-container");
     nextButton.addEventListener("click", () => this.toggleNext());
     prevButton.addEventListener("click", () => this.togglePrev());
+    imageContainer.addEventListener("mouseover", () => this.pauseAutoPlay());
+    imageContainer.addEventListener("mouseout", () => this.autoPlay());
     this.active = 0;
     this.initStepper();
     this.autoPlay();
+  }
+
+  autoPlay(){
+    this.auto = setInterval(() => this.toggleNext(), 3000)
+  }
+
+  pauseAutoPlay(){
+    clearInterval(this.auto)
   }
 
   displayPhoto(nextID) {

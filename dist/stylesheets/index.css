@@ -34,7 +34,7 @@ header, footer {
   width: 100%;
 }
 
-.image-container {
+#image-container {
   /* background-color: greenyellow; */
   height: 100%;
   width: 100%;
@@ -63,16 +63,29 @@ img {
 }
 
 .arrow {
-  border: 3px solid red;
   position: absolute;
+  width: 30px;
+  height: 30px;
   z-index: 1000;
+  border-radius: 50%;
+  opacity: 0.3;
+  transition: transform .5s, opacity .5s;
 }
+
+.arrow:hover {
+  opacity: 1;
+}
+
 .arrow--prev {
   left: 0px;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZmlsbD0iIzMzMyIgZD0iTTcgNmgydjEySDdWNnptMiA2bDggNlY2bC04IDZ6Ii8+PC9zdmc+Cg==) no-repeat 30%;
+  background-color: white;
 }
 
 .arrow--next {
-  right: 0px
+  right: 0px;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZmlsbD0iIzMzMyIgZD0iTTcgMThsOC02LTgtNnYxMnptOC0xMnYxMmgyVjZoLTJ6Ii8+PC9zdmc+Cg==) no-repeat 63%;
+  background-color: white;
 }
 
 .photo--active {
