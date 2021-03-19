@@ -1,6 +1,8 @@
 # Carousel
+## Links
+Part 1 - [Repo](https://github.com/steph-meyering/carousel) | [Live](https://steph-meyering.github.io/carousel/)
 
-Part 1 - [Repo](https://github.com/steph-meyering/carousel) [Live](https://steph-meyering.github.io/carousel/)
+Part 2 - [Repo](https://github.com/steph-meyering/vanilla-carousel) | [Live](https://steph-meyering.github.io/vanilla-carousel/)
 ## Part 1
 
 ### Tools:
@@ -16,7 +18,7 @@ Part 1 - [Repo](https://github.com/steph-meyering/carousel) [Live](https://steph
 
 ## Part 2
 
-Part 1 - [Repo](https://github.com/steph-meyering/vanilla-carousel) [Live](https://steph-meyering.github.io/vanilla-carousel/)
+
 ### Tools:
 
 - Vanilla JS, HTML, CSS
