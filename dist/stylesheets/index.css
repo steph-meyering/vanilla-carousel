@@ -8,7 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: lightblue;
+  background-color: black;
 }
 
 header, footer {
@@ -19,7 +19,7 @@ header, footer {
 }
 
 .carousel-container{
-  width: 90%;
+  width: 92%;
   margin: auto;
   display: flex;
   flex: 1 0 auto;
@@ -58,13 +58,12 @@ img {
   width: 100%;
   position: absolute;
   height: 100%;
-  border: 1px solid red;
   display: flex;
   align-items: center;
 }
 
 .arrow {
-  border: 1px solid red;
+  border: 3px solid red;
   position: absolute;
   z-index: 1000;
 }
@@ -92,7 +91,6 @@ img {
 #stepper-root {
   justify-content: center;
   display: flex;
-  border: 1px solid green;
 }
 
 .stepper-button {

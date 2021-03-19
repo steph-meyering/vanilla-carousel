@@ -1,41 +1,34 @@
 class CarouselControls {
   constructor() {
     this.photos = document.querySelectorAll(".photo");
-    this.stepperButtons = []
+    this.stepperButtons = [];
     const nextButton = document.getElementById("next");
     const prevButton = document.getElementById("prev");
     nextButton.addEventListener("click", () => this.toggleNext());
     prevButton.addEventListener("click", () => this.togglePrev());
     this.active = 0;
     this.initStepper();
+    this.autoPlay();
   }
 
-  displayPhoto(prevID, nextID) {
-    console.log("prev: ", prevID, "next: ", nextID);
+  displayPhoto(nextID) {
+    const prevID = this.active;
     [this.photos[prevID], this.photos[nextID]].forEach((el) =>
       el.classList.toggle("photo--active")
     );
+    this.active = nextID
     this.updateStepper(prevID, nextID);
   }
 
-  skipTo(id) {
-    if (id !== this.active){
-      this.displayPhoto(this.active, id)
-      this.active = id
-    }
-  }
-
   toggleNext() {
-    const prev = this.active;
-    this.active = (this.active + 1) % this.photos.length;
-    this.displayPhoto(prev, this.active);
+    let nextID = (this.active + 1) % this.photos.length;
+    this.displayPhoto(nextID);
   }
 
   togglePrev() {
-    const prev = this.active;
-    this.active =
+    let nextID =
       this.active - 1 >= 0 ? this.active - 1 : this.photos.length - 1;
-    this.displayPhoto(prev, this.active);
+    this.displayPhoto(nextID);
   }
 
   updateStepper(prevID, nextID) {
@@ -45,7 +38,6 @@ class CarouselControls {
   }
 
   initStepper() {
-    // dynamically generate a stepper button for each photo
     const stepper = document.getElementById("stepper-root");
     this.photos.forEach((_, i) => {
       const stepperButton = document.createElement("div");
@@ -54,11 +46,9 @@ class CarouselControls {
         ? stepperButton.classList.add("stepper-button--active")
         : null;
       stepperButton.id = "stepper" + i;
-      stepperButton.onclick = (() => {
-        this.skipTo(i)
-      })
+      stepperButton.onclick = () => this.displayPhoto(i);
       stepper.appendChild(stepperButton);
-      this.stepperButtons.push(stepperButton)
+      this.stepperButtons.push(stepperButton);
     });
   }
 }
